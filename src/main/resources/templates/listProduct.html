@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout/admin}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>List Product</h1>
+    <a th:href="@{/addProduct}" class="btn btn-success">Add Product
+    </a>
+    <br>
+    <table>
+        <tr >
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Categoryid</th>
+        </tr>
+        <tr th:each="product : ${productList}">
+            <td th:text="*{product.getId()}">Alfreds Futterkiste</td>
+            <td th:text="*{product.getName()}">Maria Anders</td>
+            <td th:text="*{product.getPrice()}">Maria Anders</td>
+            <td th:text="*{product.category.getName()}">Maria Anders</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
